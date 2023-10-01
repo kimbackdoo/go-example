@@ -1,9 +1,10 @@
 package main
 
 import (
-	"go-example/accounts"
+	"go-example/dict"
 )
 
 func main() {
-	accounts.Example()
+	// accounts.Example()
+	dict.Example()
 }
