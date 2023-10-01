@@ -1,10 +1,11 @@
 package main
 
 import (
-	"go-example/dict"
+	urlchecker "go-example/url-checker"
 )
 
 func main() {
 	// accounts.Example()
-	dict.Example()
+	// dict.Example()
+	urlchecker.Example()
 }
