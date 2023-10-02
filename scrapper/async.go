@@ -43,8 +43,8 @@ func jobDataAsync(element *goquery.Selection, channel chan<- JobData) {
 	channel <- jobData(element)
 }
 
-func scrapAsync(page int, pageChannel chan<- []JobData) {
-	pageURL := pageBaseURL + fmt.Sprint(page)
+func scrapAsync(jobGroup string, page int, pageChannel chan<- []JobData) {
+	pageURL := pageBaseURL + fmt.Sprint(page) + "&jobGroup=" + jobGroup
 	fmt.Println("Requesting", pageURL)
 
 	res := httpGet(pageURL)
@@ -67,7 +67,7 @@ func scrapAsync(page int, pageChannel chan<- []JobData) {
 	pageChannel <- jobs
 }
 
-func crawlAsync() {
+func crawlAsync(jobGroup string) {
 	totalPages := totalPages()
 	fmt.Println("총", totalPages, "페이지를 확인함")
 
@@ -75,7 +75,7 @@ func crawlAsync() {
 
 	channel := make(chan []JobData)
 	for page := 1; page <= totalPages; page++ {
-		go scrapAsync(page, channel)
+		go scrapAsync(jobGroup, page, channel)
 	}
 
 	var jobs []JobData

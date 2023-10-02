@@ -5,6 +5,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"strings"
 
 	"github.com/PuerkitoBio/goquery"
 )
@@ -31,6 +32,10 @@ var (
 	pageBaseURL = baseURL + "?pageNumber="
 	apiBaseURL  = baseURL + "/api/v1/position?pageSize=20&pageNumber="
 )
+
+func cleanString(str string) string {
+	return strings.Join(strings.Fields(strings.TrimSpace(str)), " ")
+}
 
 func checkErr(err error) {
 	if err != nil {

@@ -8,5 +8,6 @@ func main() {
 	// accounts.Example()
 	// dict.Example()
 	// urlchecker.Example()
-	scrapper.Example()
+	// scrapper.Example()
+	scrapper.Bootstrap()
 }
