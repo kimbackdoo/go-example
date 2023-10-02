@@ -1,11 +1,12 @@
 package main
 
 import (
-	urlchecker "go-example/url-checker"
+	"go-example/scrapper"
 )
 
 func main() {
 	// accounts.Example()
 	// dict.Example()
-	urlchecker.Example()
+	// urlchecker.Example()
+	scrapper.Example()
 }
